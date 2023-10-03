@@ -8,14 +8,8 @@ public class LocalStorage {
     public static final String RECIPE_SLIDER = "recipeSlider";
     public static final String KEY_USER = "User";
     public static final String KEY_USER_ADDRESS = "user_address";
-    public static final String KEY_PREFERENCES = "preferences";
-    public static final String USER_PREFERENCES = "user_preferences";
-    public static final String USER_NAME = "user_name";
-    public static final String USER_EMAIL = "user_email";
-    public static final String SLIDER_IMAGE = "slider_image";
-    public static final String ADVERTISE_IMAGE = "advertise_image";
-    public static final String CATEGORY = "category";
-    public static final String FAVORITE_CATEGORY = "fav_category";
+
+    public static final String KEY_Phone_Number = null;
 
     private static final String IS_USER_LOGIN = "IsUserLoggedIn";
 
@@ -75,50 +69,22 @@ public class LocalStorage {
         else return null;
     }
 
-
     public void setUserAddress(String user_address) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(KEY_USER_ADDRESS, user_address);
         editor.commit();
     }
-
-    public String getCart() {
-        if (sharedPreferences.contains("CART"))
-            return sharedPreferences.getString("CART", null);
+    public String getPhoneNumber() {
+        if (sharedPreferences.contains(KEY_Phone_Number))
+            return sharedPreferences.getString(KEY_Phone_Number, null);
         else return null;
     }
-
-
-    public void setCart(String cart) {
+    public void setPhoneNumber(String phonenumber) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("CART", cart);
-        editor.commit();
-    }
-
-    public void deleteCart() {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove("CART");
+        editor.putString(KEY_Phone_Number, phonenumber);
         editor.commit();
     }
 
 
-    public String getOrder() {
-        if (sharedPreferences.contains("ORDER"))
-            return sharedPreferences.getString("ORDER", null);
-        else return null;
-    }
-
-
-    public void setOrder(String order) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("ORDER", order);
-        editor.commit();
-    }
-
-    public void deleteOrder() {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove("ORDER");
-        editor.commit();
-    }
 }
 

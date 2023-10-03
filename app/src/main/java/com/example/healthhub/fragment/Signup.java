@@ -1,12 +1,14 @@
 package com.example.healthhub.fragment;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -52,11 +54,15 @@ public class Signup extends Fragment {
     User user;
     LocalStorage localStorage;
     Gson gson;
+
+    private static FragmentManager fragmentManager;
     public Signup() {
         // Required empty public constructor
     }
 
     private void initViews() {
+        localStorage = new LocalStorage(getContext());
+        fragmentManager = getActivity().getSupportFragmentManager();
         Fname = view.findViewById(R.id.Firstname);
         Email = view.findViewById(R.id.Emailid);
         mobileno = view.findViewById(R.id.Mobileno);
@@ -70,11 +76,11 @@ public class Signup extends Fragment {
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signUp();
                 dialog2.setContentView(R.layout.loading);
                 dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog2.setCancelable(false);
                 dialog2.show();
+                signUp();
 //                checker();
             }
         });
@@ -328,6 +334,9 @@ public class Signup extends Fragment {
                         }
                     });
         }
+        else{
+            dialog2.dismiss();
+        }
     }
 
     private void sendEmailVerification() {
@@ -347,10 +356,22 @@ public class Signup extends Fragment {
                                         MotionStyle.LIGHT,
                                         MotionStyle.SUCCESS,
                                         MotionStyle.BOTTOM,
-                                        "Verification Mail Sent",
-                                        "Please verify your Email Account to access your Account.",
+                                        "Step 1 Complete",
+                                        "Continue",
                                         MotionStyle.LENGTH_SHORT)
                                         .show();
+
+
+                                String phonenumber = Cpp.getSelectedCountryCodeWithPlus() + mobile;
+                                localStorage.setPhoneNumber(phonenumber);
+
+
+                                fragmentManager
+                                        .beginTransaction()
+                                        .replace(R.id.frameContainer,
+                                                new phoneVerify(),
+                                                "phoneVerify").commit();
+
 //                                Toast.makeText(getActivity(), "Verification email sent.", Toast.LENGTH_SHORT).show();
                             } else {
                                 dialog2.dismiss();
@@ -397,27 +418,32 @@ public class Signup extends Fragment {
 
         boolean isValid = false,isValidname=false,isValidemail=false,isValidpassword=false,isValidconfpassword=false,isValidmobilenum=false;
         if(TextUtils.isEmpty(fname)){
+            dialog2.dismiss();
             Fname.setErrorEnabled(true);
             Fname.setError("Enter First Name");
         }else{
             isValidname = true;
         }
         if(TextUtils.isEmpty(emailid)){
+            dialog2.dismiss();
             Email.setErrorEnabled(true);
             Email.setError("Email Is Required");
         }else{
             if(emailid.matches(emailpattern)){
                 isValidemail = true;
             }else{
+                dialog2.dismiss();
                 Email.setErrorEnabled(true);
                 Email.setError("Enter a Valid Email Id");
             }
         }
         if(TextUtils.isEmpty(password)){
+            dialog2.dismiss();
             Pass.setErrorEnabled(true);
             Pass.setError("Enter Password");
         }else{
             if(password.length()<8){
+                dialog2.dismiss();
                 Pass.setErrorEnabled(true);
                 Pass.setError("Password is Weak.\nA Strong Password must contain Alphabets, Numbers and Special Characters.");
             }else{
@@ -425,10 +451,12 @@ public class Signup extends Fragment {
             }
         }
         if(TextUtils.isEmpty(confpassword)){
+            dialog2.dismiss();
             cpass.setErrorEnabled(true);
             cpass.setError("Enter Password Again");
         }else{
             if(!password.equals(confpassword)){
+                dialog2.dismiss();
                 cpass.setErrorEnabled(true);
                 cpass.setError("Password Dosen't Match");
             }else{
@@ -436,14 +464,17 @@ public class Signup extends Fragment {
             }
         }
         if(TextUtils.isEmpty(mobile)){
+            dialog2.dismiss();
             mobileno.setErrorEnabled(true);
             mobileno.setError("Mobile Number Is Required");
         }else{
             if(mobile.length()<10){
+                dialog2.dismiss();
                 mobileno.setErrorEnabled(true);
                 mobileno.setError("Invalid Mobile Number");
             }
             else if(mobile.length()>10){
+                dialog2.dismiss();
                 mobileno.setErrorEnabled(true);
                 mobileno.setError("Invalid Mobile Number");
             }

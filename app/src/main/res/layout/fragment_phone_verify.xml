@@ -3,12 +3,135 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.phoneVerify">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <LinearLayout
+        android:id="@+id/login_layout"
+        android:layout_width="371dp"
+        android:layout_height="800dp"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="44dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/heathhublogo" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="311dp"
+            android:layout_height="262dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/verifyphone" />
+
+        <TextView
+            android:layout_width="259dp"
+            android:layout_height="27dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:text="Step 2 / 3  "
+            android:textAlignment="center"
+            android:textColor="@color/appblack"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/usingmail"
+            android:layout_width="41dp"
+            android:layout_height="37dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/vector_mobilecheck" />
+
+
+        <TextView
+            android:layout_width="302dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="You will Recieve OTP After you Complete Captcha Verification from Your Web Browser "
+            android:textAlignment="center"
+            android:textColor="@color/appblack"
+            android:textSize="15sp" />
+        <com.chaos.view.PinView
+            android:id="@+id/code"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:layout_gravity="center"
+            android:hint="******"
+            android:inputType="numberPassword"
+            android:itemBackground="@color/white"
+            android:padding="1dp"
+            android:textColor="@color/appcolor"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cursorColor="@color/appcolor"
+            app:cursorWidth="2dp"
+            app:hideLineWhenFilled="true"
+            app:itemCount="6"
+            app:itemHeight="48dp"
+            app:itemRadius="4dp"
+            app:itemSpacing="0dp"
+            app:itemWidth="48dp"
+            app:lineColor="@color/appcolor"
+            app:lineWidth="3dp"
+            app:viewType="rectangle" />
+<!--        <EditText-->
+<!--            android:id="@+id/code"-->
+<!--            android:layout_width="173dp"-->
+<!--            android:layout_height="66dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:ems="10"-->
+<!--            android:gravity="center"-->
+<!--            android:hint="Enter OTP"-->
+<!--            android:inputType="phone"-->
+<!--            android:textAlignment="center"-->
+<!--            tools:layout_editor_absoluteY="196dp" />-->
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Verify"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/button"
+            android:text="Verify"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Resendotp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/buttonhollow"
+            android:text="Resend OTP"
+            android:textColor="@color/appcolor"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/roboto"
+            android:inputType="number"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/appblack"
+            android:textSize="12sp" />
+
+    </LinearLayout>
 
 </FrameLayout>

@@ -52,6 +52,8 @@ dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
     implementation("com.google.firebase:firebase-auth:22.1.2")
     implementation ("com.github.ybq:Android-SpinKit:1.4.0")
+    implementation ("androidx.browser:browser:1.3.0")
+    implementation ("io.github.chaosleung:pinview:1.4.4")
 
 
     testImplementation("junit:junit:4.13.2")

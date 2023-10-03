@@ -46,7 +46,7 @@
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="match_parent"
-                android:layout_height="403dp"
+                android:layout_height="297dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/welcome" />
 
@@ -57,6 +57,7 @@
                 android:fontFamily="@font/roboto_light"
                 android:gravity="center_horizontal"
                 android:paddingHorizontal="40dp"
+                android:layout_marginTop="20dp"
                 android:text="Welcome to HealthHub, your trusted companion in healthcare. Empowering you with early cancer prediction, medical resources, and compassionate support for a healthier future."
                 android:textAlignment="center"
                 android:textColor="@color/appblack"

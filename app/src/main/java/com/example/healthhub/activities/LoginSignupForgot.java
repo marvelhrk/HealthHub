@@ -29,7 +29,7 @@ public class LoginSignupForgot extends AppCompatActivity {
     }
 
 
-    // Replace Login Fragment with animation
+    // Replace Login Fragment
     public void replaceLoginFragment() {
         fragmentManager
                 .beginTransaction()
