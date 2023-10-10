@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.mailVerification">
+
+    <LinearLayout
+        android:id="@+id/linearlayout"
+        android:layout_width="371dp"
+        android:layout_height="800dp"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="50dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/heathhublogo" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="337dp"
+            android:layout_height="284dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/verifymail" />
+
+
+        <TextView
+            android:layout_width="259dp"
+            android:layout_height="27dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:text="Step 3 / 3  "
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/usingmail"
+            android:layout_width="41dp"
+            android:layout_height="37dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/mailverify" />
+
+
+        <TextView
+            android:layout_width="259dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="9dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="Open Gmail App and Verify Your Account "
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Verify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/button"
+            android:drawableLeft="@drawable/ic_gmail"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:text="Open Gmail App"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+</FrameLayout>
