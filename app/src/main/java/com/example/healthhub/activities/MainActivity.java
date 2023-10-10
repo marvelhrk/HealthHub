@@ -26,19 +26,19 @@ public class MainActivity extends AppCompatActivity {
             localStorage = new LocalStorage(getApplicationContext());
 
 
-            Intent homeintent = new Intent(MainActivity.this, Welcome.class);
-            startActivity(homeintent);
-            finish();
+//            Intent homeintent = new Intent(MainActivity.this, Welcome.class);
+//            startActivity(homeintent);
+//            finish();
 
-//            if (localStorage.isUserLoggedIn()) {
-//                startActivity(new Intent(getApplicationContext(), MainScreen.class));
-//                finish();
-//            }
-//            else{
-//                Intent homeintent = new Intent(MainActivity.this, Welcome.class);
-//                startActivity(homeintent);
-//                finish();
-//            }
+            if (localStorage.isUserLoggedIn()) {
+                startActivity(new Intent(getApplicationContext(), MainScreen.class));
+                finish();
+            }
+            else{
+                Intent homeintent = new Intent(MainActivity.this, Welcome.class);
+                startActivity(homeintent);
+                finish();
+            }
         },SPLASH_TIME_OUT);
 
         image = findViewById(R.id.imageView);

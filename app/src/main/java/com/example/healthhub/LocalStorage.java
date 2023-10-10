@@ -5,13 +5,14 @@ import android.content.SharedPreferences;
 
 public class LocalStorage {
     public static final String KEY_HASH = "hash";
-    public static final String RECIPE_SLIDER = "recipeSlider";
+
     public static final String KEY_USER = "User";
-    public static final String KEY_USER_ADDRESS = "user_address";
 
     public static final String KEY_Phone_Number = null;
 
     private static final String IS_USER_LOGIN = "IsUserLoggedIn";
+
+    public static final String dburl = "https://healthhub-bf02c-default-rtdb.asia-southeast1.firebasedatabase.app/";
 
 
     private static LocalStorage instance = null;
@@ -63,17 +64,7 @@ public class LocalStorage {
         return sharedPreferences.getBoolean(IS_USER_LOGIN, false);
     }
 
-    public String getUserAddress() {
-        if (sharedPreferences.contains(KEY_USER_ADDRESS))
-            return sharedPreferences.getString(KEY_USER_ADDRESS, null);
-        else return null;
-    }
 
-    public void setUserAddress(String user_address) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(KEY_USER_ADDRESS, user_address);
-        editor.commit();
-    }
     public String getPhoneNumber() {
         if (sharedPreferences.contains(KEY_Phone_Number))
             return sharedPreferences.getString(KEY_Phone_Number, null);
@@ -83,6 +74,10 @@ public class LocalStorage {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(KEY_Phone_Number, phonenumber);
         editor.commit();
+    }
+
+    public String geturl(){
+        return dburl;
     }
 
 

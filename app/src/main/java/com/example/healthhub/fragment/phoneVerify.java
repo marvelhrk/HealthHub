@@ -47,6 +47,7 @@ public class phoneVerify extends Fragment {
     private static FragmentManager fragmentManager;
     private static View view;
     private void initViews() {
+
         fragmentManager = getActivity().getSupportFragmentManager();
         localStorage = new LocalStorage(getContext());
         phoneno = localStorage.getPhoneNumber().trim();
@@ -62,7 +63,12 @@ public class phoneVerify extends Fragment {
         Resend.setVisibility(View.INVISIBLE);
         txt.setVisibility(View.INVISIBLE);
 
+        dialog2.setContentView(R.layout.loading);
+        dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog2.setCancelable(false);
+        dialog2.show();
         sendverificationcode(phoneno);
+        dialog2.dismiss();
 
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +78,7 @@ public class phoneVerify extends Fragment {
                 Resend.setVisibility(View.INVISIBLE);
 
                 if (code.isEmpty() && code.length()<6){
+                    dialog2.dismiss();
                     entercode.setError("Enter code");
                     entercode.requestFocus();
                     return;
@@ -104,9 +111,13 @@ public class phoneVerify extends Fragment {
         Resend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                dialog2.setContentView(R.layout.loading);
+                dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog2.setCancelable(false);
+                dialog2.show();
                 Resend.setVisibility(View.INVISIBLE);
                 Resendotp(phoneno);
+                dialog2.dismiss();
 
                 new CountDownTimer(60000,1000){
 
@@ -207,13 +218,8 @@ public class phoneVerify extends Fragment {
     };
 
     private void verifyCode(String code) {
-
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId , code);
         linkCredential(credential);
-        dialog2.setContentView(R.layout.loading);
-        dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog2.setCancelable(false);
-        dialog2.show();
        /* final ProgressDialog mDialog = new ProgressDialog(phoneverify.this);
         mDialog.setCancelable(false);
         mDialog.setCanceledOnTouchOutside(false);
