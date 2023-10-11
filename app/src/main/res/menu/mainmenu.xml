@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/hospitalsnav"
+        android:title="Hospitals"
+        android:icon="@drawable/hospital_24"/>
+    <item
+        android:id="@+id/diagnosenav"
+        android:title="Diagnose"
+        android:icon="@drawable/pulse_24"/>
+    <item
+        android:id="@+id/blogsnav"
+        android:title="Blogs"
+        android:icon="@drawable/blog_24"/>
+    <item
+        android:id="@+id/aidocnav"
+        android:title="AI Doctor"
+        android:icon="@drawable/doctor_24"/>
+    <item
+        android:id="@+id/profilenav"
+        android:title="Profile"
+        android:icon="@drawable/user_24"/>
+
+</menu>

@@ -54,6 +54,7 @@ dependencies {
     implementation ("com.github.ybq:Android-SpinKit:1.4.0")
     implementation ("androidx.browser:browser:1.3.0")
     implementation ("io.github.chaosleung:pinview:1.4.4")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 
 
     testImplementation("junit:junit:4.13.2")
